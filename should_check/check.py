@@ -1,6 +1,12 @@
-# python-should-check
+"""
+@copyright: 2015 - 2018 SSH Communications Security Corporation.
+@author: Pauli Rikula
+@license: MIT <http://www.opensource.org/licenses/mit-license.php>
+"""
 
-Check parameters and raise comprehensible exceptions.
+
+class Check(object):
+    """Check parameters and raise comprehensible exceptions.
 
     >>> from should_check import (
     ...    Check,
@@ -184,4 +190,35 @@ So be carefull with None and add the check everywhere like you should anyway.
     ...
     ValueError: object 'another' should (reference eqally) be 'None'
 
-    
+    """
+    def __init__(self, **args):
+        self.args = args
+
+    def should(self, *checks):
+        """
+        Argument dictionary keys are used to set the property values on
+        the possibly generated exceptions.
+        Returns one of the handled values.
+        """
+        value = None
+        for name, value in self.args.items():
+            for check in checks:
+                check(name, value)
+        return value
+
+    def property(self, property_name):
+        """
+        Replaces the original value with the values property value on the checks.
+        Returns the modified object (self).
+        """
+        for name, value in self.args.items():
+            if value is not None:
+                self.args[name] = getattr(value, property_name)
+        return self
+        
+
+if __name__ == '__main__':
+    import doctest
+
+
+    doctest.testmod()
