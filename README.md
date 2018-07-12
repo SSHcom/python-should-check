@@ -49,18 +49,20 @@ check optional parameters on your functions. This for example works:
 But these wont:
 
 
-   >>> checked = Check(value=None).should(be(1))
-   Traceback (most recent call last):
+    >>> checked = Check(value=None).should(be(1))
+    Traceback (most recent call last):
     ...
-   ValueError: value 'None' should (reference eqally) be '1'
-   >>> checked = Check(value=None).should(be_in([1,2]))
-   Traceback (most recent call last):
-   ...
-   ValueError: value 'None' should be in '[1, 2]'
-   >>> checked = Check(value=None).should(be_equal_with(1))
-   Traceback (most recent call last):
-   ...
-   ValueError: value 'None' should be equal with '1'
+    ValueError: value 'None' should (reference eqally) be '1'
+
+    >>> checked = Check(value=None).should(be_in([1,2]))
+    Traceback (most recent call last):
+    ...
+    ValueError: value 'None' should be in '[1, 2]'
+
+    >>> checked = Check(value=None).should(be_equal_with(1))
+    Traceback (most recent call last):
+    ...
+    ValueError: value 'None' should be equal with '1'
 
 
 So be carefull with None and add the check everywhere like you should anyway.

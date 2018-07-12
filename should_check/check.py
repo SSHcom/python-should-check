@@ -59,10 +59,12 @@ But these wont:
     Traceback (most recent call last):
     ...
     ValueError: value 'None' should (reference eqally) be '1'
+
     >>> checked = Check(value=None).should(be_in([1,2]))
     Traceback (most recent call last):
     ...
     ValueError: value 'None' should be in '[1, 2]'
+
     >>> checked = Check(value=None).should(be_equal_with(1))
     Traceback (most recent call last):
     ...
