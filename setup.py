@@ -18,7 +18,7 @@ with open('README.md', 'wt') as readme_file:
 
 setup(
     name='python-should-check',
-    version='0.0.1',
+    version='0.0.2',
     description='Exception factory',
     long_description=README,
     license="MIT",
