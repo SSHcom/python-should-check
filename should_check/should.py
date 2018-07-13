@@ -126,7 +126,7 @@ def be_equal_with(other):
 def be(other):
     def check(name, value):
         if value is not other:
-            raise ValueError("{} '{}' should (reference eqally) be '{}'".format(name, value, other))
+            raise ValueError("{} '{}' should (reference equally) be '{}'".format(name, value, other))
     return check
 
 

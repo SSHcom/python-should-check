@@ -52,7 +52,7 @@ But these wont:
     >>> checked = Check(value=None).should(be(1))
     Traceback (most recent call last):
     ...
-    ValueError: value 'None' should (reference eqally) be '1'
+    ValueError: value 'None' should (reference equally) be '1'
 
     >>> checked = Check(value=None).should(be_in([1,2]))
     Traceback (most recent call last):
@@ -67,7 +67,7 @@ But these wont:
 
 So be carefull with None and add the check everywhere like you should anyway.
 
-## Check if a sting is a member of an enum definition
+## Check if a string is a member of an enum definition
 
 
     >>> import enum
@@ -144,7 +144,7 @@ So be carefull with None and add the check everywhere like you should anyway.
     Traceback (most recent call last):
     ...
     ValueError: number length '3' should be equal or less than '2'
-    
+
     >>> fixed = Check(number="aa").should(not_be_none, be_length_of(2))
     >>> fixed = Check(number="aaa").should(not_be_none, be_length_of(2))
     Traceback (most recent call last):
@@ -184,6 +184,6 @@ So be carefull with None and add the check everywhere like you should anyway.
     >>> equals_one = Check(object="another").should(be(None))
     Traceback (most recent call last):
     ...
-    ValueError: object 'another' should (reference eqally) be 'None'
+    ValueError: object 'another' should (reference equally) be 'None'
 
     
